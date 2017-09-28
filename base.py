@@ -1,3 +1,5 @@
+# coding: utf8
+
 import os
 from collections import defaultdict
 from datetime import datetime
@@ -48,7 +50,8 @@ class PlayerBasicInfo():
                     player = self.team_info.players_[name]
                 else:
                     logger.debug('No association for {0}. Wikipedia will be used.'.format(self.name))
-                    player = self._player_basic_info_from_wikipedia()
+                    #player = self._player_basic_info_from_wikipedia()
+                    player = None
         return player
 
     def _get_most_suitable_player(self):
@@ -251,7 +254,10 @@ class BRefMatch:
         pls = self.match_[team_cond]['players']
         for pl, info in pls.items():
             pl_basic_info = PlayerBasicInfo(pl, team_info)
-            info.update(pl_basic_info.get())
+            try:
+                info.update(pl_basic_info.get())
+            except:
+                continue
 
     def _gen_scoring(self):
         """

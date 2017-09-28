@@ -81,6 +81,7 @@ class WikipediaPlayer(Wikipedia):
         best_yob = None
         for option in options:
             if 'disambiguation' not in option:
+                continue
                 try:
                     wiki_player = wikipedia.page(option)
                 except:
