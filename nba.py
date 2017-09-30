@@ -114,7 +114,7 @@ class NbaBRefSeason(BRefSeason):
         """
         self.reg_s_codes_, self.post_s_codes_ = [], []
         base_url = LEAGUES_TO_PATH['nba'].format(self.season.split('-')[1])
-        for month in ['october', 'november', 'december', 'january',
+        for month in ['december', 'january',
                       'february', 'march', 'april', 'may', 'june']:
             url = base_url.replace('.html', '-' + month + '.html')
             self._gen_month_codes(url)
