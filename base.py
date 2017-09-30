@@ -1,3 +1,5 @@
+# coding: utf8
+
 import os
 from collections import defaultdict
 from datetime import datetime
